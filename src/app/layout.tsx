@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { Toaster } from "sonner";
 import { siteConfig } from "@/lib/constants";
-import {
-  JsonLd,
-  getWebSiteSchema,
-  getOrganizationSchema,
-  getPersonSchema,
-} from "@/components/seo/json-ld";
-import { LoveBubbles } from "@/components/shared/love-bubbles";
 import "./globals.css";
 
 const heading = Fraunces({
@@ -88,21 +77,7 @@ export default function RootLayout({
       className={`${heading.variable} ${body.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        <JsonLd data={[getWebSiteSchema(), getOrganizationSchema(), getPersonSchema()]} />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <LoveBubbles />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Toaster richColors position="top-center" closeButton />
-        </ThemeProvider>
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

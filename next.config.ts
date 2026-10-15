@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    // Photos uploaded through the Sanity Studio.
+    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "@base-ui/react"],

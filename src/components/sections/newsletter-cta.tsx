@@ -19,7 +19,7 @@ const newsletterSchema = z.object({
 
 type NewsletterValues = z.infer<typeof newsletterSchema>;
 
-export function NewsletterCTA() {
+export function NewsletterCTA({ heading, text }: { heading: string; text: string }) {
   const [submitted, setSubmitted] = useState(false);
   const {
     register,
@@ -53,10 +53,10 @@ export function NewsletterCTA() {
           <Mail className="size-5 text-gold" />
         </span>
         <h2 className="mt-4 font-heading text-3xl font-medium text-balance sm:text-4xl text-secondary-foreground">
-          Relationship insights, straight to your inbox
+          {heading}
         </h2>
         <p className="mx-auto mt-2 max-w-lg text-base leading-relaxed text-secondary-foreground/80 sm:text-lg">
-          Join the newsletter for reflections on healing, choosing well, and loving better.
+          {text}
         </p>
 
         {submitted ? (

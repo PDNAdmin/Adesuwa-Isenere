@@ -7,12 +7,19 @@ import {
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { AnimatedReveal } from "@/components/shared/animated-reveal";
-import { faqs } from "@/content/faqs";
+import type { Faq, SectionText } from "@/types/content";
 
-export function FaqAccordion() {
+export function FaqAccordion({ faqs, content }: { faqs: Faq[]; content: SectionText }) {
+  if (faqs.length === 0) return null;
+
   return (
     <Section background="muted">
-      <SectionHeading eyebrow="FAQs" title="Common questions" align="center" />
+      <SectionHeading
+        eyebrow={content.smallHeading}
+        title={content.heading}
+        description={content.intro}
+        align="center"
+      />
       <AnimatedReveal className="mx-auto mt-8 max-w-2xl" delay={0.1}>
         <Accordion className="rounded-2xl border border-border bg-card px-6 py-2 ">
           {faqs.map((faq, i) => (

@@ -1,8 +1,9 @@
-import { siteConfig, contactInfo, socialLinks } from "@/lib/constants";
-import { services } from "@/content/services";
-import { pricingTiers } from "@/content/pricing";
-import { faqs } from "@/content/faqs";
-import { books, courses } from "@/content/media";
+import { siteConfig } from "@/lib/constants";
+import type { Faq, PricingTier, Product, Service, SiteSettings } from "@/types/content";
+
+function absoluteUrl(path: string) {
+  return path.startsWith("http") ? path : `${siteConfig.url}${path}`;
+}
 
 export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {
   return (
@@ -35,25 +36,22 @@ export function getWebSiteSchema() {
  * Verified LocalBusiness & CounselingService schema
  * Captures Lagos physical appointment presence and nationwide/worldwide virtual channels
  */
-export function getOrganizationSchema() {
-  const sameAsLinks = [
-    ...socialLinks.map((s) => s.href),
-    "https://selar.com/m/heartdropswithsuess",
-  ];
+export function getOrganizationSchema(settings: SiteSettings) {
+  const sameAsLinks = [...settings.socialLinks.map((s) => s.url), settings.selarStoreUrl];
 
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "MedicalBusiness"],
     "@id": `${siteConfig.url}/#organization`,
-    name: siteConfig.practiceName,
-    alternateName: `${siteConfig.name} - Marriage & Family Counselor`,
+    name: settings.practiceName,
+    alternateName: `${settings.counsellorName} - Marriage & Family Counselor`,
     description: siteConfig.description,
     url: siteConfig.url,
-    telephone: contactInfo.phone,
-    email: contactInfo.email,
+    telephone: settings.phone,
+    email: settings.email,
     priceRange: "₦₦ - ₦₦₦",
-    image: `${siteConfig.url}/images/logo.png`,
-    logo: `${siteConfig.url}/images/logo.png`,
+    image: `${siteConfig.url}/images/logo-mark-light.png`,
+    logo: `${siteConfig.url}/images/logo-mark-light.png`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Lagos",
@@ -104,12 +102,12 @@ export function getOrganizationSchema() {
  * Practitioner Person schema for Adesuwa Isenérè
  * Strict E-E-A-T attribution without inventing unverified credentials
  */
-export function getPersonSchema() {
+export function getPersonSchema(settings: SiteSettings) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${siteConfig.url}/#practitioner`,
-    name: siteConfig.name,
+    name: settings.counsellorName,
     jobTitle: "Marriage & Family Counselor",
     description:
       "Marriage & Family Counselor, Author of Before You Say Yes, Speaker, and Podcast Host of Heartdrops with Suess.",
@@ -118,7 +116,7 @@ export function getPersonSchema() {
     worksFor: {
       "@id": `${siteConfig.url}/#organization`,
     },
-    sameAs: socialLinks.map((s) => s.href),
+    sameAs: settings.socialLinks.map((s) => s.url),
     knowsAbout: [
       "Relationship Counseling",
       "Marriage Counseling",
@@ -157,7 +155,7 @@ export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
 /**
  * Schema representing the practice's counseling services and structured packages
  */
-export function getServicesSchema() {
+export function getServicesSchema(services: Service[], pricingTiers: PricingTier[]) {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -193,7 +191,7 @@ export function getServicesSchema() {
             "@type": "Offer",
             price: tier.price,
             priceCurrency: "NGN",
-            url: tier.ctaHref.startsWith("http") ? tier.ctaHref : `${siteConfig.url}${tier.ctaHref}`,
+            url: absoluteUrl(tier.ctaHref),
             availability: "https://schema.org/InStock",
           },
         },
@@ -203,9 +201,9 @@ export function getServicesSchema() {
 }
 
 /**
- * Verified FAQPage schema derived from clinical questions in src/content/faqs.ts
+ * FAQPage schema built from the questions shown on the Services page
  */
-export function getFaqSchema() {
+export function getFaqSchema(faqs: Faq[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -223,7 +221,10 @@ export function getFaqSchema() {
 /**
  * Media & Books schema for Before You Say Yes and Online Courses
  */
-export function getMediaSchema() {
+export function getMediaSchema(products: Product[]) {
+  const books = products.filter((p) => p.kind === "book");
+  const courses = products.filter((p) => p.kind === "course");
+
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -239,7 +240,7 @@ export function getMediaSchema() {
             "@id": `${siteConfig.url}/#practitioner`,
           },
           url: book.href,
-          image: `${siteConfig.url}${book.image}`,
+          ...(book.image && { image: absoluteUrl(book.image) }),
         },
       })),
       ...courses.map((course, index) => ({
@@ -253,7 +254,7 @@ export function getMediaSchema() {
             "@id": `${siteConfig.url}/#organization`,
           },
           url: course.href,
-          image: `${siteConfig.url}${course.image}`,
+          ...(course.image && { image: absoluteUrl(course.image) }),
         },
       })),
     ],

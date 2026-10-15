@@ -17,14 +17,14 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { navLinks } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-export function Header() {
+export function Header({ name, buttonLabel }: { name: string; buttonLabel: string }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Logo />
+        <Logo name={name} />
 
         <nav className="hidden items-center gap-5 lg:flex xl:gap-8">
           {navLinks.map((link) => {
@@ -50,7 +50,7 @@ export function Header() {
             render={<Link href="/contact" prefetch={true} />}
             className="hidden sm:inline-flex px-5 text-sm font-medium shadow-xs"
           >
-            Contact Adesuwa
+            {buttonLabel}
           </Button>
           <ThemeToggle />
 
@@ -68,7 +68,7 @@ export function Header() {
               <div>
                 <SheetHeader className="p-0 pb-5 border-b border-border/60">
                   <SheetTitle>
-                    <Logo />
+                    <Logo name={name} />
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="mt-6 flex flex-col gap-1.5">
@@ -100,7 +100,7 @@ export function Header() {
                   render={<Link href="/contact" prefetch={true} onClick={() => setOpen(false)} />}
                   className="w-full shadow-md font-semibold text-sm"
                 >
-                  Contact Adesuwa
+                  {buttonLabel}
                 </Button>
               </div>
             </SheetContent>

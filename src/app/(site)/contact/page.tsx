@@ -9,7 +9,8 @@ import { SocialLinks } from "@/components/shared/social-links";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { JsonLd, getBreadcrumbSchema } from "@/components/seo/json-ld";
-import { contactInfo, siteConfig } from "@/lib/constants";
+import { siteConfig } from "@/lib/constants";
+import { getContactPage, getSiteSettings } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact & Book a Session | Merry Hearts Counselling Lagos",
@@ -44,16 +45,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [page, settings] = await Promise.all([getContactPage(), getSiteSettings()]);
+  const direct = page.directContact;
+
   return (
     <>
       <JsonLd
         data={getBreadcrumbSchema([{ name: "Contact", path: "/contact" }])}
       />
       <PageHero
-        eyebrow="Contact"
-        title="Let's start the conversation"
-        description="Have a question, or ready to book? Reach out, I'd love to hear from you."
+        eyebrow={page.banner.smallHeading}
+        title={page.banner.heading}
+        description={page.banner.intro}
       />
 
       <Section>
@@ -64,18 +68,17 @@ export default function ContactPage() {
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <Badge variant="secondary" className="bg-primary/10 text-primary font-medium">
-                      Direct Inquiries
+                      {direct.badge}
                     </Badge>
-                    <span className="text-xs text-foreground/50">Lagos & Online</span>
+                    <span className="text-xs text-foreground/50">{direct.sideLabel}</span>
                   </div>
 
                   <h2 className="mt-4 font-heading text-2xl sm:text-3xl font-medium text-balance">
-                    Get in Touch Directly
+                    {direct.heading}
                   </h2>
 
                   <p className="mt-3 text-sm sm:text-base leading-relaxed text-foreground/70">
-                    Have an urgent question, want to say hello, or prefer reaching out directly?
-                    Connect with Adesuwa through any of the channels below.
+                    {direct.intro}
                   </p>
 
                   <div className="mt-6 space-y-4 border-t border-border/60 pt-6 text-sm">
@@ -86,12 +89,12 @@ export default function ContactPage() {
                       <div>
                         <p className="font-heading text-xs text-foreground/60 uppercase tracking-wider">WhatsApp</p>
                         <a
-                          href="https://wa.me/2347017396035"
+                          href={`https://wa.me/${settings.whatsappNumber}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-base font-medium hover:text-primary transition-colors"
                         >
-                          Chat on WhatsApp
+                          {direct.whatsappLinkLabel}
                         </a>
                       </div>
                     </div>
@@ -103,10 +106,10 @@ export default function ContactPage() {
                       <div>
                         <p className="font-heading text-xs text-foreground/60 uppercase tracking-wider">Email</p>
                         <a
-                          href={contactInfo.emailHref}
+                          href={`mailto:${settings.email}`}
                           className="text-base font-medium hover:text-primary transition-colors"
                         >
-                          {contactInfo.email}
+                          {settings.email}
                         </a>
                       </div>
                     </div>
@@ -118,10 +121,10 @@ export default function ContactPage() {
                       <div>
                         <p className="font-heading text-xs text-foreground/60 uppercase tracking-wider">Phone</p>
                         <a
-                          href={contactInfo.phoneHref}
+                          href={`tel:${settings.phone.replace(/[^\d+]/g, "")}`}
                           className="text-base font-medium hover:text-primary transition-colors"
                         >
-                          {contactInfo.phone}
+                          {settings.phone}
                         </a>
                       </div>
                     </div>
@@ -133,8 +136,8 @@ export default function ContactPage() {
                       <div>
                         <p className="font-heading text-xs text-foreground/60 uppercase tracking-wider">Consultation Formats</p>
                         <p className="text-sm leading-relaxed text-foreground/80">
-                          <strong className="text-foreground font-semibold">Virtual:</strong> worldwide (Zoom / Google Meet)<br />
-                          <strong className="text-foreground font-semibold">In-person:</strong> in Lagos by appointment
+                          <strong className="text-foreground font-semibold">Virtual:</strong> {direct.virtualSessions}<br />
+                          <strong className="text-foreground font-semibold">In-person:</strong> {direct.inPersonSessions}
                         </p>
                       </div>
                     </div>
@@ -144,10 +147,10 @@ export default function ContactPage() {
                 <div className="mt-6 border-t border-border/60 pt-5">
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <p className="font-heading text-sm font-medium text-foreground">Follow along</p>
-                      <p className="text-xs text-foreground/50">Episodes, reflections & updates</p>
+                      <p className="font-heading text-sm font-medium text-foreground">{direct.followHeading}</p>
+                      <p className="text-xs text-foreground/50">{direct.followText}</p>
                     </div>
-                    <SocialLinks />
+                    <SocialLinks links={settings.socialLinks} />
                   </div>
                 </div>
               </CardContent>
@@ -155,12 +158,12 @@ export default function ContactPage() {
           </AnimatedReveal>
 
           <AnimatedReveal delay={0.1} className="h-full">
-            <ContactForm />
+            <ContactForm content={page.intakeForm} formUrl={settings.clientIntakeFormUrl} />
           </AnimatedReveal>
         </div>
       </Section>
 
-      <NewsletterCTA />
+      <NewsletterCTA heading={settings.newsletterHeading} text={settings.newsletterText} />
     </>
   );
 }

@@ -5,14 +5,18 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { ServiceCard } from "@/components/shared/service-card";
 import { AnimatedReveal } from "@/components/shared/animated-reveal";
 import { Button } from "@/components/ui/button";
-import { services } from "@/content/services";
 import { cn } from "@/lib/utils";
+import type { HomePageContent, Service } from "@/types/content";
 
 export function ServicesGrid({
+  services,
+  content,
   showAll = true,
   showCta = false,
   background = "default",
 }: {
+  services: Service[];
+  content: HomePageContent["servicesSection"];
   showAll?: boolean;
   showCta?: boolean;
   background?: "default" | "muted" | "blush";
@@ -22,11 +26,7 @@ export function ServicesGrid({
 
   return (
     <Section background={background}>
-      <SectionHeading
-        eyebrow="What I Offer"
-        title="Counseling, trainings & resources"
-        description="Support for singles, couples, and families, whatever stage of the relationship journey you're in."
-      />
+      <SectionHeading eyebrow={content.smallHeading} title={content.heading} description={content.intro} />
       <div
         className={cn(
           "mt-8 grid gap-6 lg:gap-8",
@@ -51,7 +51,7 @@ export function ServicesGrid({
       {showCta && (
         <div className="mt-8 text-center">
           <Button render={<Link href="/services" prefetch={true} />}>
-            View all services
+            {content.buttonLabel}
             <ArrowRight className="size-4" />
           </Button>
         </div>

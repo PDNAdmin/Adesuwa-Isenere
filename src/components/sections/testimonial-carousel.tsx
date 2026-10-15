@@ -3,8 +3,7 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { AnimatedReveal } from "@/components/shared/animated-reveal";
 import { cn } from "@/lib/utils";
-import { testimonials } from "@/content/testimonials";
-import type { Testimonial } from "@/types/content";
+import type { SectionText, Testimonial } from "@/types/content";
 
 function initials(name: string) {
   return name
@@ -78,16 +77,23 @@ function MarqueeRow({
   );
 }
 
-export function TestimonialCarousel() {
+export function TestimonialCarousel({
+  testimonials,
+  content,
+}: {
+  testimonials: Testimonial[];
+  content: SectionText;
+}) {
+  if (testimonials.length === 0) return null;
   const rowOne = testimonials;
   const rowTwo = [...testimonials.slice(3), ...testimonials.slice(0, 3)];
 
   return (
     <Section background="muted" className="overflow-hidden">
       <SectionHeading
-        eyebrow="Client Stories"
-        title="Words from those I've walked with"
-        description="Real feedback from the counselling client survey, shared with permission."
+        eyebrow={content.smallHeading}
+        title={content.heading}
+        description={content.intro}
         align="center"
       />
 

@@ -12,9 +12,8 @@ import {
   getServicesSchema,
   getFaqSchema,
 } from "@/components/seo/json-ld";
-import { services } from "@/content/services";
-import { pricingTiers } from "@/content/pricing";
 import { siteConfig } from "@/lib/constants";
+import { getFaqs, getPackages, getServices, getServicesPage } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Relationship & Marriage Counseling Services | Lagos & Online Nigeria",
@@ -49,27 +48,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const [page, services, pricingTiers, faqs] = await Promise.all([
+    getServicesPage(),
+    getServices(),
+    getPackages(),
+    getFaqs(),
+  ]);
+
   return (
     <>
       <JsonLd
         data={[
           getBreadcrumbSchema([{ name: "Services", path: "/services" }]),
-          getServicesSchema(),
-          getFaqSchema(),
+          getServicesSchema(services, pricingTiers),
+          getFaqSchema(faqs),
         ]}
       />
       <PageHero
-        eyebrow="Services"
-        title="Counseling & Trainings"
-        description={`Offered through ${siteConfig.practiceName}, support for wherever you are in your relationship journey.`}
+        eyebrow={page.banner.smallHeading}
+        title={page.banner.heading}
+        description={page.banner.intro}
       />
 
       <Section>
         <SectionHeading
-          eyebrow="Merry Hearts Counselling"
-          title="How we can work together"
-          description="Every service is rooted in compassion, confidentiality, and clinical excellence, practical support for singles, couples, and families."
+          eyebrow={page.servicesSection.smallHeading}
+          title={page.servicesSection.heading}
+          description={page.servicesSection.intro}
           align="center"
         />
         <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2 lg:gap-8">
@@ -83,9 +89,9 @@ export default function ServicesPage() {
 
       <Section id="booking" background="blush">
         <SectionHeading
-          eyebrow="Pricing"
-          title="Counseling packages"
-          description="Every package is booked and paid for securely through Selar."
+          eyebrow={page.pricingSection.smallHeading}
+          title={page.pricingSection.heading}
+          description={page.pricingSection.intro}
           align="center"
         />
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
@@ -96,13 +102,11 @@ export default function ServicesPage() {
           ))}
         </div>
         <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-foreground/60">
-          Each package is structured to deliver results within its stated sessions. If more support
-          is needed, additional sessions are billed separately at the standard rate. Full booking,
-          payment, and rescheduling terms are shared at checkout.
+          {page.pricingFootnote}
         </p>
       </Section>
 
-      <FaqAccordion />
+      <FaqAccordion faqs={faqs} content={page.faqSection} />
     </>
   );
 }
