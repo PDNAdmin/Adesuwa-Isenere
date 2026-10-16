@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { socialLinks } from "@/lib/constants";
+import type { SocialLink, SocialPlatform } from "@/types/content";
 
 // lucide-react dropped brand/trademarked glyphs - minimal inline marks keep the icon set consistent.
 function InstagramIcon({ className }: { className?: string }) {
@@ -35,24 +35,61 @@ function SpotifyIcon({ className }: { className?: string }) {
   );
 }
 
-const icons = {
+function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4a20 20 0 0 0-2.2-.1c-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21Z" />
+    </svg>
+  );
+}
+
+function TiktokIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M16.6 3h-3.1v12.2a2.7 2.7 0 1 1-2.7-2.7c.3 0 .5 0 .8.1V9.4a5.8 5.8 0 1 0 5 5.8V9a7.4 7.4 0 0 0 4.4 1.4V7.3A4.4 4.4 0 0 1 16.6 3Z" />
+    </svg>
+  );
+}
+
+function LinkedinIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M6.9 8.8H3.6V20h3.3ZM5.2 3.5a1.9 1.9 0 1 0 0 3.9 1.9 1.9 0 0 0 0-3.9ZM20.4 13.6c0-3-.6-5.1-4.1-5.1a3.6 3.6 0 0 0-3.2 1.8V8.8H9.9V20h3.3v-5.5c0-1.5.3-2.9 2.1-2.9s1.8 1.7 1.8 3V20h3.3Z" />
+    </svg>
+  );
+}
+
+const icons: Record<SocialPlatform, (props: { className?: string }) => React.JSX.Element> = {
   instagram: InstagramIcon,
   youtube: YoutubeIcon,
   spotify: SpotifyIcon,
+  facebook: FacebookIcon,
+  tiktok: TiktokIcon,
+  linkedin: LinkedinIcon,
 };
 
-export function SocialLinks({ className }: { className?: string }) {
+const labels: Record<SocialPlatform, string> = {
+  instagram: "Instagram",
+  youtube: "YouTube",
+  spotify: "Spotify",
+  facebook: "Facebook",
+  tiktok: "TikTok",
+  linkedin: "LinkedIn",
+};
+
+export function SocialLinks({ links, className }: { links: SocialLink[]; className?: string }) {
   return (
     <ul className={cn("flex items-center gap-3", className)}>
-      {socialLinks.map((social) => {
-        const Icon = icons[social.icon];
+      {links.map((social) => {
+        const Icon = icons[social.platform];
+        if (!Icon) return null;
         return (
-          <li key={social.label}>
+          <li key={social.platform + social.url}>
             <a
-              href={social.href}
+              href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={social.label}
+              aria-label={labels[social.platform]}
               className="flex size-9 items-center justify-center rounded-full border border-border text-foreground/70 transition-colors hover:border-primary hover:text-primary"
             >
               <Icon className="size-4" />

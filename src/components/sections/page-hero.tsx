@@ -1,4 +1,3 @@
-import { AnimatedReveal } from "@/components/shared/animated-reveal";
 import { Container } from "@/components/layout/container";
 
 export function PageHero({
@@ -6,14 +5,14 @@ export function PageHero({
   title,
   description,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
 }) {
   return (
     <section className="bg-secondary text-secondary-foreground">
       <Container className="py-10 text-center md:py-14">
-        <AnimatedReveal>
+        <div className="animate-hero-fade-in">
           <span className="font-heading text-sm font-medium tracking-[0.2em] text-gold uppercase">
             {eyebrow}
           </span>
@@ -25,7 +24,7 @@ export function PageHero({
               {description}
             </p>
           )}
-        </AnimatedReveal>
+        </div>
       </Container>
     </section>
   );

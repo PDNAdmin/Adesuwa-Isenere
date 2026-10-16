@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Compass, Heart, ShieldCheck, Sparkles } from "lucide-react";
+import { Compass, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -8,6 +8,8 @@ import { AnimatedReveal } from "@/components/shared/animated-reveal";
 import { Card, CardContent } from "@/components/ui/card";
 import { JsonLd, getBreadcrumbSchema } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/constants";
+import { getAboutPage, getSiteSettings } from "@/lib/content";
+import { DynamicIcon } from "@/lib/icons";
 
 export const metadata: Metadata = {
   title: "About Adesuwa Isenérè | Marriage & Family Counselor",
@@ -42,34 +44,16 @@ export const metadata: Metadata = {
   },
 };
 
-const values = [
-  {
-    icon: Heart,
-    title: "Compassion Without Compromise",
-    description:
-      "I lead with warmth in every interaction, while holding professional boundaries and clinical rigour with equal commitment.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Confidentiality as Sacred Trust",
-    description:
-      "What happens in the counseling room stays there. Every client's trust is the foundation of the work we do together.",
-  },
-  {
-    icon: Sparkles,
-    title: "Hope as a Clinical Commitment",
-    description:
-      "I believe people can change and healing is possible - no one is beyond help, growth, or the life they're hoping for.",
-  },
-];
+export default async function AboutPage() {
+  const [page, settings] = await Promise.all([getAboutPage(), getSiteSettings()]);
 
-export default function AboutPage() {
   return (
     <>
       <JsonLd data={getBreadcrumbSchema([{ name: "About", path: "/about" }])} />
       <PageHero
-        eyebrow="About Adesuwa"
-        title="Break the pattern. Heal the wound. Build the life."
+        eyebrow={page.banner.smallHeading}
+        title={page.banner.heading}
+        description={page.banner.intro}
       />
 
       <Section>
@@ -77,8 +61,8 @@ export default function AboutPage() {
           <AnimatedReveal className="mx-auto w-full max-w-xs lg:mx-0 lg:max-w-none">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-lg ring-1 ring-foreground/5">
               <Image
-                src="/images/adesuwa-about.jpg"
-                alt={siteConfig.name}
+                src={page.photo}
+                alt={settings.counsellorName}
                 fill
                 sizes="(min-width: 1024px) 22rem, (min-width: 640px) 24rem, 85vw"
                 className="object-cover"
@@ -89,27 +73,15 @@ export default function AboutPage() {
 
           <AnimatedReveal delay={0.1} className="flex flex-col justify-center">
             <span className="font-heading text-sm font-medium tracking-[0.2em] text-primary uppercase">
-              My Story & Approach
+              {page.story.smallHeading}
             </span>
             <h2 className="mt-2.5 font-heading text-2xl font-medium leading-tight text-foreground sm:text-3xl lg:text-4xl text-balance">
-              Helping you heal, choose better, and love well.
+              {page.story.heading}
             </h2>
             <div className="mt-5 space-y-4 text-base sm:text-lg leading-relaxed text-foreground/80">
-              <p>
-                I became a counselor because I believe that most of the pain people carry in their
-                relationships did not begin there. It began long before, in their first homes, in
-                childhoods, in the patterns they watched and inherited and never had the right
-                language for.
-              </p>
-              <p>
-                My work is to help you find that language; to name what has been driving the
-                patterns; to heal what needs healing and to build, on the other side of that work,
-                a life and relationships that actually feel like yours.
-              </p>
-              <p>
-                Whether you are navigating a relationship decision, healing from a painful past, or
-                learning to love and be loved well, you are in the right place.
-              </p>
+              {page.story.paragraphs.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
             </div>
           </AnimatedReveal>
         </div>
@@ -117,9 +89,9 @@ export default function AboutPage() {
 
       <Section background="blush">
         <SectionHeading
-          eyebrow="Mission & Vision"
-          title="Why I do this work"
-          description="Every session, conversation, and resource is grounded in helping individuals and families build lasting emotional health."
+          eyebrow={page.missionVisionSection.smallHeading}
+          title={page.missionVisionSection.heading}
+          description={page.missionVisionSection.intro}
           align="center"
         />
         <div className="mx-auto mt-8 grid max-w-4xl gap-6 sm:grid-cols-2">
@@ -132,11 +104,7 @@ export default function AboutPage() {
                   </span>
                   <h3 className="font-heading text-xl font-medium text-foreground">Mission</h3>
                 </div>
-                <p className="mt-4 text-base leading-relaxed text-foreground/75">
-                  To help individuals, couples, and families break unhealthy emotional patterns,
-                  heal from the inside out, and build relationships that reflect their fullest
-                  potential through counseling, education, and honest conversation.
-                </p>
+                <p className="mt-4 text-base leading-relaxed text-foreground/75">{page.mission}</p>
               </CardContent>
             </Card>
           </AnimatedReveal>
@@ -150,11 +118,7 @@ export default function AboutPage() {
                   </span>
                   <h3 className="font-heading text-xl font-medium text-foreground">Vision</h3>
                 </div>
-                <p className="mt-4 text-base leading-relaxed text-foreground/75">
-                  A world where emotional health is not a luxury, where healing is not a sign of
-                  weakness, and where every person has access to the tools, support, and truth they
-                  need to live and love well.
-                </p>
+                <p className="mt-4 text-base leading-relaxed text-foreground/75">{page.vision}</p>
               </CardContent>
             </Card>
           </AnimatedReveal>
@@ -162,16 +126,20 @@ export default function AboutPage() {
       </Section>
 
       <Section background="muted">
-        <SectionHeading eyebrow="How I Work" title="What guides every session" align="center" />
+        <SectionHeading
+          eyebrow={page.valuesSection.smallHeading}
+          title={page.valuesSection.heading}
+          description={page.valuesSection.intro}
+          align="center"
+        />
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
-          {values.map((value, i) => {
-            const Icon = value.icon;
+          {page.values.map((value, i) => {
             return (
               <AnimatedReveal key={value.title} delay={i * 0.1}>
                 <Card className="h-full text-center">
                   <CardContent className="flex h-full flex-col items-center">
                     <span className="flex size-12 items-center justify-center rounded-full bg-blush text-primary">
-                      <Icon className="size-5" />
+                      <DynamicIcon name={value.icon} className="size-5" />
                     </span>
                     <h3 className="mt-4 font-heading text-lg">{value.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-foreground/70">

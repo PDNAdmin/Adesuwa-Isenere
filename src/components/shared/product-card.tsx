@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import type { Product } from "@/types/content";
 
 export function ProductCard({ product }: { product: Product }) {
-  const Icon = product.icon ?? Sparkles;
+  const Icon = Sparkles;
 
   return (
     <Card className="flex h-full flex-col gap-0 overflow-hidden rounded-2xl py-0 ring-1 ring-foreground/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">

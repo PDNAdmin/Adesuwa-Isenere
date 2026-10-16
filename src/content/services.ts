@@ -1,11 +1,10 @@
-import { GraduationCap, HeartHandshake, Home, Users } from "lucide-react";
 import type { Service } from "@/types/content";
 
 // Draft copy - intake form left service descriptions blank (Q5).
 // Replace with Adesuwa's own wording before launch.
 export const services: Service[] = [
   {
-    icon: HeartHandshake,
+    icon: "heart-handshake",
     title: "Individual Counseling",
     audience: "Singles & Personal Growth",
     description:
@@ -13,7 +12,7 @@ export const services: Service[] = [
     features: ["Emotional healing", "Relationship readiness", "Personal growth"],
   },
   {
-    icon: Users,
+    icon: "users",
     title: "Pre-Marital & Couples Counseling",
     audience: "Couples & Intending",
     description:
@@ -21,7 +20,7 @@ export const services: Service[] = [
     features: ["Pre-marital preparation", "Communication & conflict", "Building trust"],
   },
   {
-    icon: Home,
+    icon: "home",
     title: "Family Counseling",
     audience: "Families & Systems",
     description:
@@ -29,7 +28,7 @@ export const services: Service[] = [
     features: ["Family systems", "Generational patterns", "Cultural & faith context"],
   },
   {
-    icon: GraduationCap,
+    icon: "graduation-cap",
     title: "Trainings & Workshops",
     audience: "Groups & Organizations",
     description:

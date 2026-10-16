@@ -3,20 +3,21 @@ import { Mail, Phone } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
 import { SocialLinks } from "@/components/shared/social-links";
 import { Container } from "@/components/layout/container";
-import { navLinks, contactInfo, siteConfig } from "@/lib/constants";
+import { navLinks } from "@/lib/constants";
+import type { SiteSettings } from "@/types/content";
 
-export function Footer() {
+export function Footer({ settings }: { settings: SiteSettings }) {
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-border bg-secondary text-secondary-foreground">
       <Container className="grid gap-8 py-10 sm:grid-cols-2 md:py-12 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
-          <Logo className="[&_span]:text-secondary-foreground" />
+          <Logo name={settings.counsellorName} className="[&_span]:text-secondary-foreground" />
           <p className="mt-3 max-w-xs text-sm text-secondary-foreground/70">
-            {siteConfig.tagline}
+            {settings.tagline}
           </p>
-          <SocialLinks className="mt-5 [&_a]:border-secondary-foreground/20 [&_a]:text-secondary-foreground/70 [&_a:hover]:border-gold [&_a:hover]:text-gold" />
+          <SocialLinks links={settings.socialLinks} className="mt-5 [&_a]:border-secondary-foreground/20 [&_a]:text-secondary-foreground/70 [&_a:hover]:border-gold [&_a:hover]:text-gold" />
         </div>
 
         <div>
@@ -47,19 +48,19 @@ export function Footer() {
 
         <div>
           <h3 className="font-heading text-sm tracking-wide text-secondary-foreground/60 uppercase">
-            {siteConfig.practiceName}
+            {settings.practiceName}
           </h3>
           <ul className="mt-4 space-y-2.5 text-sm text-secondary-foreground/80">
             <li className="flex items-center gap-2">
               <Phone className="size-4 shrink-0 text-gold" />
-              <a href={contactInfo.phoneHref} className="hover:text-gold">
-                {contactInfo.phone}
+              <a href={`tel:${settings.phone.replace(/[^\d+]/g, "")}`} className="hover:text-gold">
+                {settings.phone}
               </a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="size-4 shrink-0 text-gold" />
-              <a href={contactInfo.emailHref} className="hover:text-gold">
-                {contactInfo.email}
+              <a href={`mailto:${settings.email}`} className="hover:text-gold">
+                {settings.email}
               </a>
             </li>
           </ul>
@@ -70,7 +71,7 @@ export function Footer() {
             Stay Connected
           </h3>
           <p className="mt-4 text-sm text-secondary-foreground/80">
-            Get relationship insights and updates in your inbox.
+            {settings.footerNewsletterText}
           </p>
           <Link
             href="/contact#newsletter"
@@ -84,9 +85,9 @@ export function Footer() {
       <div className="border-t border-secondary-foreground/10 py-4.5">
         <Container className="flex flex-col items-center justify-between gap-2 text-xs text-secondary-foreground/60 sm:flex-row">
           <p>
-            © {year} {siteConfig.name}. All rights reserved.
+            © {year} {settings.counsellorName}. All rights reserved.
           </p>
-          <p>{siteConfig.practiceName}</p>
+          <p>{settings.practiceName}</p>
         </Container>
       </div>
     </footer>

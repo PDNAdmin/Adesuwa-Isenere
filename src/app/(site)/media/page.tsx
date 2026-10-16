@@ -3,6 +3,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { MediaGrid } from "@/components/sections/media-grid";
 import { JsonLd, getBreadcrumbSchema, getMediaSchema } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/constants";
+import { getMediaPage, getProducts, getSiteSettings } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Books, Courses & Relationship Resources | Adesuwa Isenérè",
@@ -37,21 +38,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MediaPage() {
+export default async function MediaPage() {
+  const [page, products, settings] = await Promise.all([
+    getMediaPage(),
+    getProducts(),
+    getSiteSettings(),
+  ]);
+
   return (
     <>
       <JsonLd
         data={[
           getBreadcrumbSchema([{ name: "Media & Resources", path: "/media" }]),
-          getMediaSchema(),
+          getMediaSchema(products),
         ]}
       />
       <PageHero
-        eyebrow="Media & Resources"
-        title="Books, courses & conversations"
-        description="Author, Speaker, Podcast Host - resources to support your journey beyond the counseling room."
+        eyebrow={page.banner.smallHeading}
+        title={page.banner.heading}
+        description={page.banner.intro}
       />
-      <MediaGrid />
+      <MediaGrid products={products} content={page} socialLinks={settings.socialLinks} />
     </>
   );
 }

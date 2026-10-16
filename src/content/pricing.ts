@@ -1,5 +1,4 @@
 import type { PricingTier } from "@/types/content";
-import { selarStoreUrl } from "@/lib/constants";
 
 // Sourced from the official Counselling Packages Price List.
 // Every package is sold and booked through the Selar storefront.
@@ -94,7 +93,7 @@ export const pricingTiers: PricingTier[] = [
       "Rebuild trust, intimacy & communication",
     ],
     note: "₦50,000/individual session, ₦80,000/couple session.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "https://selar.com/m/heartdropswithsuess",
   },
   {
     name: "Premarital Counseling",

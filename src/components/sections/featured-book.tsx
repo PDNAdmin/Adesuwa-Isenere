@@ -4,10 +4,15 @@ import { ArrowUpRight, BookOpen } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { AnimatedReveal } from "@/components/shared/animated-reveal";
 import { Button } from "@/components/ui/button";
-import { books } from "@/content/media";
+import type { HomePageContent, Product } from "@/types/content";
 
-export function FeaturedBook() {
-  const book = books[0];
+export function FeaturedBook({
+  book,
+  content,
+}: {
+  book: Product | undefined;
+  content: HomePageContent["featuredBook"];
+}) {
   if (!book) return null;
 
   return (
@@ -32,7 +37,7 @@ export function FeaturedBook() {
             <BookOpen className="size-5" />
           </span>
           <span className="mt-4 block font-heading text-sm font-medium tracking-[0.2em] text-primary uppercase">
-            Featured Book
+            {content.smallHeading}
           </span>
           <h2 className="mt-2 text-3xl font-medium text-balance">{book.title}</h2>
           <p className="mx-auto mt-2 max-w-xl text-foreground/70 lg:mx-0">{book.description}</p>
@@ -41,8 +46,8 @@ export function FeaturedBook() {
               {book.ctaLabel}
               <ArrowUpRight className="size-4" />
             </Button>
-            <Button size="lg" variant="outline" render={<Link href="/media" />}>
-              Explore books & courses
+            <Button size="lg" variant="outline" render={<Link href="/media" prefetch={true} />}>
+              {content.secondButtonLabel}
             </Button>
           </div>
         </AnimatedReveal>

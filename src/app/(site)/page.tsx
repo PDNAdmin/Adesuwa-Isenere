@@ -6,6 +6,13 @@ import { ServicesGrid } from "@/components/sections/services-grid";
 import { TestimonialCarousel } from "@/components/sections/testimonial-carousel";
 import { FeaturedBook } from "@/components/sections/featured-book";
 import { NewsletterCTA } from "@/components/sections/newsletter-cta";
+import {
+  getFeaturedBook,
+  getHomePage,
+  getServices,
+  getSiteSettings,
+  getTestimonials,
+} from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Marriage & Family Counselor in Lagos, Nigeria | Relationship Therapy",
@@ -40,15 +47,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [page, settings, services, testimonials, featuredBook] = await Promise.all([
+    getHomePage(),
+    getSiteSettings(),
+    getServices(),
+    getTestimonials(),
+    getFeaturedBook(),
+  ]);
+
   return (
     <>
-      <Hero />
-      <AboutTeaser />
-      <ServicesGrid showAll={false} showCta />
-      <TestimonialCarousel />
-      <FeaturedBook />
-      <NewsletterCTA />
+      <Hero hero={page.hero} name={settings.counsellorName} />
+      <AboutTeaser content={page.aboutPreview} />
+      <ServicesGrid services={services} content={page.servicesSection} showAll={false} showCta />
+      <TestimonialCarousel testimonials={testimonials} content={page.testimonialsSection} />
+      <FeaturedBook book={featuredBook} content={page.featuredBook} />
+      <NewsletterCTA heading={settings.newsletterHeading} text={settings.newsletterText} />
     </>
   );
 }
