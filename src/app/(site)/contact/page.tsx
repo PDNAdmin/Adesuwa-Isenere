@@ -163,7 +163,12 @@ export default async function ContactPage() {
         </div>
       </Section>
 
-      <NewsletterCTA heading={settings.newsletterHeading} text={settings.newsletterText} />
+      <NewsletterCTA
+        heading={settings.newsletterHeading}
+        text={settings.newsletterText}
+        signupUrl={settings.newsletterUrl}
+        buttonLabel={settings.newsletterButtonLabel}
+      />
     </>
   );
 }

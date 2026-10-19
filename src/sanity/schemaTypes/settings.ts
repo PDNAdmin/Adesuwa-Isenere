@@ -99,6 +99,21 @@ export const siteSettings = defineType({
       group: "newsletter",
     }),
     defineField({
+      name: "newsletterButtonLabel",
+      title: "Sign-up button text",
+      description: "Shown on the button in the newsletter box, e.g. Subscribe to the Newsletter.",
+      type: "string",
+      group: "newsletter",
+    }),
+    defineField({
+      name: "newsletterUrl",
+      title: "Newsletter sign-up link (Brevo form)",
+      description:
+        "Where the sign-up button and the footer link go. Paste the full link of your Brevo form.",
+      type: "url",
+      group: "newsletter",
+    }),
+    defineField({
       name: "footerNewsletterText",
       title: "Footer 'Stay Connected' sentence",
       type: "string",

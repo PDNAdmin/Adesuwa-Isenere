@@ -63,7 +63,12 @@ export default async function HomePage() {
       <ServicesGrid services={services} content={page.servicesSection} showAll={false} showCta />
       <TestimonialCarousel testimonials={testimonials} content={page.testimonialsSection} />
       <FeaturedBook book={featuredBook} content={page.featuredBook} />
-      <NewsletterCTA heading={settings.newsletterHeading} text={settings.newsletterText} />
+      <NewsletterCTA
+        heading={settings.newsletterHeading}
+        text={settings.newsletterText}
+        signupUrl={settings.newsletterUrl}
+        buttonLabel={settings.newsletterButtonLabel}
+      />
     </>
   );
 }

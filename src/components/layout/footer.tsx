@@ -73,12 +73,14 @@ export function Footer({ settings }: { settings: SiteSettings }) {
           <p className="mt-4 text-sm text-secondary-foreground/80">
             {settings.footerNewsletterText}
           </p>
-          <Link
-            href="/contact#newsletter"
+          <a
+            href={settings.newsletterUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-3 inline-block text-sm font-medium text-gold underline underline-offset-4"
           >
             Subscribe to the newsletter
-          </Link>
+          </a>
         </div>
       </Container>
 
