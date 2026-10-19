@@ -21,4 +21,7 @@ export const defaultSiteSettings: SiteSettings = {
   newsletterHeading: "Relationship insights, straight to your inbox",
   newsletterText:
     "Join the newsletter for reflections on healing, choosing well, and loving better.",
+  newsletterUrl:
+    "https://9f323d47.sibforms.com/serve/MUIFACZBPhlCTgKvtSNpKlGVSHuWhl_5RW40xfmKqJajkNtBzW_wNY0XivAjCBa0uwcukJqW-gxWioRY70MmH5s8pqhm0vc8Z1THQWGMH4VHHwJhZFZBb1-rk_uqzICVgcXXBca40baPDR_Mro1-mEn1fpUh9oTrHO2Lr1Ot2_scxhsv1mTBsIAXWGPnbpoKs8oVExwXwN5X_66xmA==",
+  newsletterButtonLabel: "Subscribe to the Newsletter",
 };

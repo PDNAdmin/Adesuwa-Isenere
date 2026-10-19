@@ -4,7 +4,7 @@ export const siteSettingsQuery = defineQuery(`*[_id == "siteSettings"][0]{
   counsellorName, practiceName, tagline, phone, email, whatsappNumber,
   socialLinks[]{ platform, url },
   selarStoreUrl, clientIntakeFormUrl, headerButtonLabel,
-  footerNewsletterText, newsletterHeading, newsletterText
+  footerNewsletterText, newsletterHeading, newsletterText, newsletterUrl, newsletterButtonLabel
 }`);
 
 export const homePageQuery = defineQuery(`*[_id == "homePage"][0]{

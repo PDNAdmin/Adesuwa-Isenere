@@ -27,6 +27,8 @@ export type SiteSettings = {
   footerNewsletterText: string;
   newsletterHeading: string;
   newsletterText: string;
+  newsletterUrl: string;
+  newsletterButtonLabel: string;
 };
 
 export type HomePageContent = {

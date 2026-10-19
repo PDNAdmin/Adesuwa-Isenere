@@ -18,11 +18,3 @@ export const navLinks = [
 
 // TODO: replace with the real Calendly (or Cal.com) scheduling link before launch.
 export const calendlyUrl = "https://calendly.com/your-calendly-handle";
-
-// TODO: replace with real EmailJS credentials before launch (see .env.local.example).
-export const emailjsConfig = {
-  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "REPLACE_SERVICE_ID",
-  newsletterTemplateId:
-    process.env.NEXT_PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID ?? "REPLACE_NEWSLETTER_TEMPLATE_ID",
-  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "REPLACE_PUBLIC_KEY",
-};
