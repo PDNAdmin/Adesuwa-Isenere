@@ -1,83 +1,50 @@
-"use client";
-
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { toast } from "sonner";
-import { Mail, Loader2 } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Section } from "@/components/layout/section";
 import { AnimatedReveal } from "@/components/shared/animated-reveal";
-import { sendNewsletterSignup } from "@/lib/emailjs";
 
-const newsletterSchema = z.object({
-  email: z.string().email("Enter a valid email address."),
-});
-
-type NewsletterValues = z.infer<typeof newsletterSchema>;
-
-export function NewsletterCTA() {
-  const [submitted, setSubmitted] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<NewsletterValues>({ resolver: zodResolver(newsletterSchema) });
-
-  async function onSubmit(values: NewsletterValues) {
-    try {
-      await sendNewsletterSignup(values);
-      setSubmitted(true);
-      reset();
-      toast.success("You're subscribed! Look out for our next update.");
-    } catch {
-      toast.error("Something went wrong. Please try again in a moment.");
-    }
-  }
-
+export function NewsletterCTA({
+  heading,
+  text,
+  signupUrl,
+  buttonLabel,
+}: {
+  heading: string;
+  text: string;
+  signupUrl: string;
+  buttonLabel: string;
+}) {
   return (
-    <Section id="newsletter" background="secondary">
-      <AnimatedReveal className="mx-auto max-w-xl text-center">
-        <Mail className="mx-auto size-8 text-gold" />
-        <h2 className="mt-4 text-3xl font-medium text-balance">
-          Relationship insights, straight to your inbox
+    <Section
+      id="newsletter"
+      className="relative overflow-hidden border-t border-border/80 bg-secondary text-secondary-foreground dark:border-border/40 dark:bg-linear-to-b dark:from-[#2a0e18] dark:to-[#1a070e]"
+    >
+      {/* Ambient background glow for dark mode luminosity */}
+      <div className="pointer-events-none absolute -top-32 -left-32 size-96 rounded-full bg-primary/20 blur-3xl dark:bg-primary/25" />
+      <div className="pointer-events-none absolute -bottom-32 -right-32 size-96 rounded-full bg-gold/20 blur-3xl dark:bg-gold/25" />
+
+      <AnimatedReveal className="relative mx-auto max-w-2xl text-center">
+        <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-gold/15 text-gold border border-gold/30 shadow-sm backdrop-blur-xs">
+          <Mail className="size-5 text-gold" />
+        </span>
+        <h2 className="mt-4 font-heading text-3xl font-medium text-balance sm:text-4xl text-secondary-foreground">
+          {heading}
         </h2>
-        <p className="mt-3 text-secondary-foreground/75">
-          Join the newsletter for reflections on healing, choosing well, and loving better.
+        <p className="mx-auto mt-2 max-w-lg text-base leading-relaxed text-secondary-foreground/80 sm:text-lg">
+          {text}
         </p>
 
-        {submitted ? (
-          <p className="mt-6 font-medium text-gold">Thank you for subscribing!</p>
-        ) : (
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center"
-            noValidate
-          >
-            <div className="sm:w-72">
-              <Input
-                type="email"
-                placeholder="you@example.com"
-                aria-label="Email address"
-                aria-invalid={!!errors.email}
-                className="bg-background text-foreground"
-                {...register("email")}
-              />
-              {errors.email && (
-                <p className="mt-1 text-left text-xs text-destructive-foreground/90">
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
-            <Button type="submit" disabled={isSubmitting} className="shrink-0">
-              {isSubmitting && <Loader2 className="size-4 animate-spin" />}
-              Subscribe
-            </Button>
-          </form>
-        )}
+        <Button
+          size="lg"
+          className="mt-6 h-12 rounded-xl px-7 text-sm font-semibold shadow-md transition-all bg-gold text-[#2a1015] hover:bg-gold/90 dark:shadow-gold/20"
+          render={<a href={signupUrl} target="_blank" rel="noopener noreferrer" />}
+        >
+          {buttonLabel}
+          <ArrowUpRight className="size-4" />
+        </Button>
+        <p className="mt-3 text-xs text-secondary-foreground/60">
+          Opens a secure sign-up form in a new tab. No spam, unsubscribe anytime.
+        </p>
       </AnimatedReveal>
     </Section>
   );

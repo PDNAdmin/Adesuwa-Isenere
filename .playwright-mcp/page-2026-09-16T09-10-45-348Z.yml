@@ -1,0 +1,359 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Adesuwa Isenérè logo Adesuwa Isenérè" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "Adesuwa Isenérè logo" [ref=e5]
+        - generic [ref=e6]: Adesuwa Isenérè
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /about
+        - link "Services" [ref=e10] [cursor=pointer]:
+          - /url: /services
+        - link "Media & Resources" [ref=e11] [cursor=pointer]:
+          - /url: /media
+      - generic [ref=e12]:
+        - button "Contact Adesuwa" [ref=e13] [cursor=pointer]
+        - button "Toggle dark mode" [ref=e14] [cursor=pointer]
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: Marriage & Family Counselor
+        - heading "Because healthy relationships begin with a healthy you." [level=1] [ref=e20]
+        - paragraph [ref=e21]: Helping you heal, choose better, and love well - counseling, trainings, and resources for singles and newly married couples building relationships that last.
+        - generic [ref=e22]:
+          - button "Book a Counselling Session" [ref=e23] [cursor=pointer]
+          - button "Meet Adesuwa" [ref=e24] [cursor=pointer]
+      - generic [ref=e25]:
+        - img "Adesuwa Isenérè" [ref=e26]
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: Adesuwa Isenérè
+          - paragraph [ref=e29]: Marriage & Family Counselor
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - text: About Adesuwa
+        - heading "My mission is to help you heal, choose better, and love well." [level=2] [ref=e34]
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: I became a counselor because I believe that most of the pain people carry in their relationships did not begin there - it began long before, in their first homes, in childhoods, in the patterns they watched and inherited and never had the right language for.
+        - paragraph [ref=e37]: My work is to help you find that language; to name what has been driving the patterns; to heal what needs healing, and to build a life and relationships that actually feel like yours.
+        - button "Read my full story" [ref=e38] [cursor=pointer]
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - text: What I Offer
+        - heading "Counseling, trainings & resources" [level=2] [ref=e42]
+        - paragraph [ref=e43]: Support for singles, couples, and families, whatever stage of the relationship journey you're in.
+      - generic [ref=e44]:
+        - generic [ref=e47]:
+          - generic [ref=e48]: Singles & Personal Growth
+          - heading "Individual Counseling" [level=3] [ref=e53]
+          - paragraph [ref=e54]: One-on-one sessions for singles navigating emotional patterns, past hurt, or decisions about relationships - a space to understand yourself before you build with someone else.
+          - generic [ref=e55]:
+            - generic [ref=e56]: Key Focus Areas
+            - generic [ref=e57]:
+              - generic [ref=e58]: Emotional healing
+              - generic [ref=e59]: Relationship readiness
+              - generic [ref=e60]: Personal growth
+          - link "Explore counseling packages" [ref=e62] [cursor=pointer]:
+            - /url: /services#booking
+        - generic [ref=e68]:
+          - generic [ref=e69]: Couples & Intending
+          - heading "Pre-Marital & Couples Counseling" [level=3] [ref=e77]
+          - paragraph [ref=e78]: For couples preparing for marriage or working through challenges together - honest, guided conversations that build a healthier foundation.
+          - generic [ref=e79]:
+            - generic [ref=e80]: Key Focus Areas
+            - generic [ref=e81]:
+              - generic [ref=e82]: Pre-marital preparation
+              - generic [ref=e83]: Communication & conflict
+              - generic [ref=e84]: Building trust
+          - link "Explore counseling packages" [ref=e86] [cursor=pointer]:
+            - /url: /services#booking
+        - generic [ref=e92]:
+          - generic [ref=e93]: Families & Systems
+          - heading "Family Counseling" [level=3] [ref=e99]
+          - paragraph [ref=e100]: Support for families navigating patterns that started long before this generation, breaking cycles and building healthier home dynamics.
+          - generic [ref=e101]:
+            - generic [ref=e102]: Key Focus Areas
+            - generic [ref=e103]:
+              - generic [ref=e104]: Family systems
+              - generic [ref=e105]: Generational patterns
+              - generic [ref=e106]: Cultural & faith context
+          - link "Explore counseling packages" [ref=e108] [cursor=pointer]:
+            - /url: /services#booking
+      - button "View all services" [ref=e113] [cursor=pointer]
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - text: Client Stories
+        - heading "Words from those I've walked with" [level=2] [ref=e117]
+        - paragraph [ref=e118]: Real feedback from the counselling client survey, shared with permission.
+      - generic [ref=e119]:
+        - generic [ref=e121]:
+          - figure "DI Dorathy Ighorodje Counselling Client" [ref=e122]:
+            - blockquote [ref=e138]: “I have been able to start building my relationship with God and I have also been able to understand important things about relationship both romantic and friendship.”
+            - generic [ref=e139]:
+              - generic [ref=e140]: DI
+              - generic [ref=e141]:
+                - paragraph [ref=e142]: Dorathy Ighorodje
+                - paragraph [ref=e143]: Counselling Client
+          - figure "LY Lydia Yusuf Counselling Client" [ref=e144]:
+            - blockquote [ref=e160]: “The sessions were great, the counsellor was a great listener, she was open to hear and answer questions being asked and address points said. The counselor made the session really safe to express myself.”
+            - generic [ref=e161]:
+              - generic [ref=e162]: LY
+              - generic [ref=e163]:
+                - paragraph [ref=e164]: Lydia Yusuf
+                - paragraph [ref=e165]: Counselling Client
+          - figure "S Suess Counselling Client" [ref=e166]:
+            - blockquote [ref=e182]: “The apt listening of the counselor and her ability to ask the right questions that would uncover the hurt and wounds. This made it easy for me to see the root cause of things and tackle them by doing the inner work.”
+            - generic [ref=e183]:
+              - generic [ref=e184]: S
+              - generic [ref=e185]:
+                - paragraph [ref=e186]: Suess
+                - paragraph [ref=e187]: Counselling Client
+          - figure "DI Dorathy Ighorodje Counselling Client" [ref=e188]:
+            - blockquote [ref=e204]: “I feel so much more at peace with and in myself.”
+            - generic [ref=e205]:
+              - generic [ref=e206]: DI
+              - generic [ref=e207]:
+                - paragraph [ref=e208]: Dorathy Ighorodje
+                - paragraph [ref=e209]: Counselling Client
+          - figure "SC Samuel Cheginnes Counselling Client" [ref=e210]:
+            - blockquote [ref=e226]: “I can sit with myself now without running. I am beginning to make decisions and take necessary steps towards business and career without overthinking or caring about what people would think. I am cultivating the habit of giving myself more credit.”
+            - generic [ref=e227]:
+              - generic [ref=e228]: SC
+              - generic [ref=e229]:
+                - paragraph [ref=e230]: Samuel Cheginnes
+                - paragraph [ref=e231]: Counselling Client
+          - figure "F Fogooluwa Counselling Client" [ref=e232]:
+            - blockquote [ref=e248]: “Come with issues, worries, questions and pain. There's healing here. Irrespective of your gender.”
+            - generic [ref=e249]:
+              - generic [ref=e250]: F
+              - generic [ref=e251]:
+                - paragraph [ref=e252]: Fogooluwa
+                - paragraph [ref=e253]: Counselling Client
+          - figure "CO Chinonye Ochi Counselling Client" [ref=e254]:
+            - blockquote [ref=e270]: “The entire experience. It's such a no-judgement zone, and the resources genuinely helped me. All of them.”
+            - generic [ref=e271]:
+              - generic [ref=e272]: CO
+              - generic [ref=e273]:
+                - paragraph [ref=e274]: Chinonye Ochi
+                - paragraph [ref=e275]: Counselling Client
+          - figure "DI Dorathy Ighorodje Counselling Client" [ref=e276]:
+            - blockquote [ref=e292]: “I have been able to start building my relationship with God and I have also been able to understand important things about relationship both romantic and friendship.”
+            - generic [ref=e293]:
+              - generic [ref=e294]: DI
+              - generic [ref=e295]:
+                - paragraph [ref=e296]: Dorathy Ighorodje
+                - paragraph [ref=e297]: Counselling Client
+          - figure "LY Lydia Yusuf Counselling Client" [ref=e298]:
+            - blockquote [ref=e314]: “The sessions were great, the counsellor was a great listener, she was open to hear and answer questions being asked and address points said. The counselor made the session really safe to express myself.”
+            - generic [ref=e315]:
+              - generic [ref=e316]: LY
+              - generic [ref=e317]:
+                - paragraph [ref=e318]: Lydia Yusuf
+                - paragraph [ref=e319]: Counselling Client
+          - figure "S Suess Counselling Client" [ref=e320]:
+            - blockquote [ref=e336]: “The apt listening of the counselor and her ability to ask the right questions that would uncover the hurt and wounds. This made it easy for me to see the root cause of things and tackle them by doing the inner work.”
+            - generic [ref=e337]:
+              - generic [ref=e338]: S
+              - generic [ref=e339]:
+                - paragraph [ref=e340]: Suess
+                - paragraph [ref=e341]: Counselling Client
+          - figure "DI Dorathy Ighorodje Counselling Client" [ref=e342]:
+            - blockquote [ref=e358]: “I feel so much more at peace with and in myself.”
+            - generic [ref=e359]:
+              - generic [ref=e360]: DI
+              - generic [ref=e361]:
+                - paragraph [ref=e362]: Dorathy Ighorodje
+                - paragraph [ref=e363]: Counselling Client
+          - figure "SC Samuel Cheginnes Counselling Client" [ref=e364]:
+            - blockquote [ref=e380]: “I can sit with myself now without running. I am beginning to make decisions and take necessary steps towards business and career without overthinking or caring about what people would think. I am cultivating the habit of giving myself more credit.”
+            - generic [ref=e381]:
+              - generic [ref=e382]: SC
+              - generic [ref=e383]:
+                - paragraph [ref=e384]: Samuel Cheginnes
+                - paragraph [ref=e385]: Counselling Client
+          - figure "F Fogooluwa Counselling Client" [ref=e386]:
+            - blockquote [ref=e402]: “Come with issues, worries, questions and pain. There's healing here. Irrespective of your gender.”
+            - generic [ref=e403]:
+              - generic [ref=e404]: F
+              - generic [ref=e405]:
+                - paragraph [ref=e406]: Fogooluwa
+                - paragraph [ref=e407]: Counselling Client
+          - figure "CO Chinonye Ochi Counselling Client" [ref=e408]:
+            - blockquote [ref=e424]: “The entire experience. It's such a no-judgement zone, and the resources genuinely helped me. All of them.”
+            - generic [ref=e425]:
+              - generic [ref=e426]: CO
+              - generic [ref=e427]:
+                - paragraph [ref=e428]: Chinonye Ochi
+                - paragraph [ref=e429]: Counselling Client
+        - generic [ref=e431]:
+          - figure "DI Dorathy Ighorodje Counselling Client" [ref=e432]:
+            - blockquote [ref=e448]: “I feel so much more at peace with and in myself.”
+            - generic [ref=e449]:
+              - generic [ref=e450]: DI
+              - generic [ref=e451]:
+                - paragraph [ref=e452]: Dorathy Ighorodje
+                - paragraph [ref=e453]: Counselling Client
+          - figure "SC Samuel Cheginnes Counselling Client" [ref=e454]:
+            - blockquote [ref=e470]: “I can sit with myself now without running. I am beginning to make decisions and take necessary steps towards business and career without overthinking or caring about what people would think. I am cultivating the habit of giving myself more credit.”
+            - generic [ref=e471]:
+              - generic [ref=e472]: SC
+              - generic [ref=e473]:
+                - paragraph [ref=e474]: Samuel Cheginnes
+                - paragraph [ref=e475]: Counselling Client
+          - figure "F Fogooluwa Counselling Client" [ref=e476]:
+            - blockquote [ref=e492]: “Come with issues, worries, questions and pain. There's healing here. Irrespective of your gender.”
+            - generic [ref=e493]:
+              - generic [ref=e494]: F
+              - generic [ref=e495]:
+                - paragraph [ref=e496]: Fogooluwa
+                - paragraph [ref=e497]: Counselling Client
+          - figure "CO Chinonye Ochi Counselling Client" [ref=e498]:
+            - blockquote [ref=e514]: “The entire experience. It's such a no-judgement zone, and the resources genuinely helped me. All of them.”
+            - generic [ref=e515]:
+              - generic [ref=e516]: CO
+              - generic [ref=e517]:
+                - paragraph [ref=e518]: Chinonye Ochi
+                - paragraph [ref=e519]: Counselling Client
+          - figure "DI Dorathy Ighorodje Counselling Client" [ref=e520]:
+            - blockquote [ref=e536]: “I have been able to start building my relationship with God and I have also been able to understand important things about relationship both romantic and friendship.”
+            - generic [ref=e537]:
+              - generic [ref=e538]: DI
+              - generic [ref=e539]:
+                - paragraph [ref=e540]: Dorathy Ighorodje
+                - paragraph [ref=e541]: Counselling Client
+          - figure "LY Lydia Yusuf Counselling Client" [ref=e542]:
+            - blockquote [ref=e558]: “The sessions were great, the counsellor was a great listener, she was open to hear and answer questions being asked and address points said. The counselor made the session really safe to express myself.”
+            - generic [ref=e559]:
+              - generic [ref=e560]: LY
+              - generic [ref=e561]:
+                - paragraph [ref=e562]: Lydia Yusuf
+                - paragraph [ref=e563]: Counselling Client
+          - figure "S Suess Counselling Client" [ref=e564]:
+            - blockquote [ref=e580]: “The apt listening of the counselor and her ability to ask the right questions that would uncover the hurt and wounds. This made it easy for me to see the root cause of things and tackle them by doing the inner work.”
+            - generic [ref=e581]:
+              - generic [ref=e582]: S
+              - generic [ref=e583]:
+                - paragraph [ref=e584]: Suess
+                - paragraph [ref=e585]: Counselling Client
+          - figure "DI Dorathy Ighorodje Counselling Client" [ref=e586]:
+            - blockquote [ref=e602]: “I feel so much more at peace with and in myself.”
+            - generic [ref=e603]:
+              - generic [ref=e604]: DI
+              - generic [ref=e605]:
+                - paragraph [ref=e606]: Dorathy Ighorodje
+                - paragraph [ref=e607]: Counselling Client
+          - figure "SC Samuel Cheginnes Counselling Client" [ref=e608]:
+            - blockquote [ref=e624]: “I can sit with myself now without running. I am beginning to make decisions and take necessary steps towards business and career without overthinking or caring about what people would think. I am cultivating the habit of giving myself more credit.”
+            - generic [ref=e625]:
+              - generic [ref=e626]: SC
+              - generic [ref=e627]:
+                - paragraph [ref=e628]: Samuel Cheginnes
+                - paragraph [ref=e629]: Counselling Client
+          - figure "F Fogooluwa Counselling Client" [ref=e630]:
+            - blockquote [ref=e646]: “Come with issues, worries, questions and pain. There's healing here. Irrespective of your gender.”
+            - generic [ref=e647]:
+              - generic [ref=e648]: F
+              - generic [ref=e649]:
+                - paragraph [ref=e650]: Fogooluwa
+                - paragraph [ref=e651]: Counselling Client
+          - figure "CO Chinonye Ochi Counselling Client" [ref=e652]:
+            - blockquote [ref=e668]: “The entire experience. It's such a no-judgement zone, and the resources genuinely helped me. All of them.”
+            - generic [ref=e669]:
+              - generic [ref=e670]: CO
+              - generic [ref=e671]:
+                - paragraph [ref=e672]: Chinonye Ochi
+                - paragraph [ref=e673]: Counselling Client
+          - figure "DI Dorathy Ighorodje Counselling Client" [ref=e674]:
+            - blockquote [ref=e690]: “I have been able to start building my relationship with God and I have also been able to understand important things about relationship both romantic and friendship.”
+            - generic [ref=e691]:
+              - generic [ref=e692]: DI
+              - generic [ref=e693]:
+                - paragraph [ref=e694]: Dorathy Ighorodje
+                - paragraph [ref=e695]: Counselling Client
+          - figure "LY Lydia Yusuf Counselling Client" [ref=e696]:
+            - blockquote [ref=e712]: “The sessions were great, the counsellor was a great listener, she was open to hear and answer questions being asked and address points said. The counselor made the session really safe to express myself.”
+            - generic [ref=e713]:
+              - generic [ref=e714]: LY
+              - generic [ref=e715]:
+                - paragraph [ref=e716]: Lydia Yusuf
+                - paragraph [ref=e717]: Counselling Client
+          - figure "S Suess Counselling Client" [ref=e718]:
+            - blockquote [ref=e734]: “The apt listening of the counselor and her ability to ask the right questions that would uncover the hurt and wounds. This made it easy for me to see the root cause of things and tackle them by doing the inner work.”
+            - generic [ref=e735]:
+              - generic [ref=e736]: S
+              - generic [ref=e737]:
+                - paragraph [ref=e738]: Suess
+                - paragraph [ref=e739]: Counselling Client
+    - generic [ref=e742]:
+      - img "Before You Say Yes" [ref=e744]
+      - generic [ref=e745]:
+        - generic [ref=e749]: Featured Book
+        - heading "Before You Say Yes" [level=2] [ref=e750]
+        - paragraph [ref=e751]: The conversations, questions, and truths that prepare you for marriage - a guide for every woman standing at a crossroad, helping you choose better before you commit.
+        - generic [ref=e752]:
+          - button "Buy the Book" [ref=e753] [cursor=pointer]
+          - button "Explore books & courses" [ref=e754] [cursor=pointer]
+    - generic [ref=e757]:
+      - heading "Relationship insights, straight to your inbox" [level=2] [ref=e762]
+      - paragraph [ref=e763]: Join the newsletter for reflections on healing, choosing well, and loving better.
+      - generic [ref=e764]:
+        - textbox "Email address" [ref=e766]:
+          - /placeholder: you@example.com
+        - button "Subscribe" [ref=e767] [cursor=pointer]
+  - contentinfo [ref=e768]:
+    - generic [ref=e769]:
+      - generic [ref=e770]:
+        - link "Adesuwa Isenérè logo Adesuwa Isenérè" [ref=e771] [cursor=pointer]:
+          - /url: /
+          - img "Adesuwa Isenérè logo" [ref=e772]
+          - generic [ref=e773]: Adesuwa Isenérè
+        - paragraph [ref=e774]: Because healthy relationships begin with a healthy you.
+        - list [ref=e775]:
+          - listitem [ref=e776]:
+            - link "Instagram" [ref=e777] [cursor=pointer]:
+              - /url: https://www.instagram.com/merryheartswithsuess
+          - listitem [ref=e782]:
+            - link "YouTube" [ref=e783] [cursor=pointer]:
+              - /url: https://youtube.com/@heartdropswithsuess
+          - listitem [ref=e786]:
+            - link "Spotify" [ref=e787] [cursor=pointer]:
+              - /url: https://open.spotify.com/show/4vz3nuJr5nhdNezQyw5G3h
+      - generic [ref=e790]:
+        - heading "Navigate" [level=3] [ref=e791]
+        - list [ref=e792]:
+          - listitem [ref=e793]:
+            - link "Home" [ref=e794] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e795]:
+            - link "About" [ref=e796] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e797]:
+            - link "Services" [ref=e798] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e799]:
+            - link "Media & Resources" [ref=e800] [cursor=pointer]:
+              - /url: /media
+          - listitem [ref=e801]:
+            - link "Contact" [ref=e802] [cursor=pointer]:
+              - /url: /contact
+      - generic [ref=e803]:
+        - heading "Merry Hearts Counselling" [level=3] [ref=e804]
+        - list [ref=e805]:
+          - listitem [ref=e806]:
+            - link "+234 701 739 6035" [ref=e809] [cursor=pointer]:
+              - /url: tel:+2347017396035
+          - listitem [ref=e810]:
+            - link "heartdropswithsuess@gmail.com" [ref=e814] [cursor=pointer]:
+              - /url: mailto:heartdropswithsuess@gmail.com
+      - generic [ref=e815]:
+        - heading "Stay Connected" [level=3] [ref=e816]
+        - paragraph [ref=e817]: Get relationship insights and updates in your inbox.
+        - link "Subscribe to the newsletter" [ref=e818] [cursor=pointer]:
+          - /url: /contact#newsletter
+    - generic [ref=e820]:
+      - paragraph [ref=e821]: © 2026 Adesuwa Isenérè. All rights reserved.
+      - paragraph [ref=e822]: Merry Hearts Counselling
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e828] [cursor=pointer]

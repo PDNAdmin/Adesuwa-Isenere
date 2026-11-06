@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
   --font-heading: var(--font-heading);
+  --font-eyebrow: var(--font-body);
   --color-blush: var(--blush);
   --color-blush-foreground: var(--blush-foreground);
   --color-gold: var(--gold);
@@ -46,7 +47,7 @@
 }
 
 :root {
-  /* Adesuwa Isenérè brand palette — sampled from logo (#C60E80) and brand doc (wine #4A0F1C, ivory #FDF3DC, blush #F9EEF1, gold #C9A84C) */
+  /* Adesuwa Isenérè brand palette - sampled from logo (#C60E80) and brand doc (wine #4A0F1C, ivory #FDF3DC, blush #F9EEF1, gold #C9A84C) */
   --background: #fffcf9;
   --foreground: #2a1015;
   --card: #ffffff;
@@ -87,7 +88,7 @@
   --popover: #26121a;
   --popover-foreground: #fbefe4;
   --primary: #e23b96;
-  --primary-foreground: #1b0b10;
+  --primary-foreground: #ffffff;
   --secondary: #3a121f;
   --secondary-foreground: #fbefe4;
   --muted: #2a161b;
@@ -124,17 +125,47 @@
   animation-name: marquee;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-hero-fade-in {
+  animation: heroFadeIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
 }
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
     @apply border-border outline-ring/50;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
   }
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-sans;
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
   }
   h1,
   h2,

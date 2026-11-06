@@ -1,5 +1,4 @@
 import type { PricingTier } from "@/types/content";
-import { selarStoreUrl } from "@/lib/constants";
 
 // Sourced from the official Counselling Packages Price List.
 // Every package is sold and booked through the Selar storefront.
@@ -17,7 +16,7 @@ export const pricingTiers: PricingTier[] = [
       "Practical tools to regain control quickly",
     ],
     note: "Additional sessions billed at ₦50,000/session.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "https://selar.com/ho746r29p2",
   },
   {
     name: "Uncovering Emotional Wounds",
@@ -32,7 +31,7 @@ export const pricingTiers: PricingTier[] = [
       "Build healthier emotional responses",
     ],
     note: "Additional sessions billed at ₦50,000/session.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "https://selar.com/954e9l8674",
     highlighted: true,
     badge: "Most Booked",
   },
@@ -49,7 +48,7 @@ export const pricingTiers: PricingTier[] = [
       "Guide you toward a clear, confident decision",
     ],
     note: "Additional sessions billed at ₦50,000/session.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "https://selar.com/42cm8t44w9",
   },
   {
     name: "Conflict Resolution",
@@ -64,7 +63,7 @@ export const pricingTiers: PricingTier[] = [
       "Practical conflict-navigation skills",
     ],
     note: "₦50,000/individual session, ₦80,000/couple session.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "https://selar.com/9m0681548t",
   },
   {
     name: "Marriage Enrichment",
@@ -79,7 +78,7 @@ export const pricingTiers: PricingTier[] = [
       "Strengthen trust, teamwork & shared vision",
     ],
     note: "₦50,000/individual session, ₦80,000/couple session.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "https://selar.com/4wzu498q49",
   },
   {
     name: "Infidelity Recovery",
@@ -94,7 +93,7 @@ export const pricingTiers: PricingTier[] = [
       "Rebuild trust, intimacy & communication",
     ],
     note: "₦50,000/individual session, ₦80,000/couple session.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "https://selar.com/m/heartdropswithsuess",
   },
   {
     name: "Premarital Counseling",
@@ -109,7 +108,7 @@ export const pricingTiers: PricingTier[] = [
       "Finances, intimacy, sex & long-term vision",
     ],
     note: "₦50,000/individual session, ₦80,000/couple session.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "https://docs.google.com/forms/d/e/1FAIpQLSfcM8H-u-u__iV1_VawQ7mzT3E_RLCUxdxChIRiY49PQ4Y4CA/viewform",
   },
   {
     name: "Platinum Package",
@@ -124,7 +123,7 @@ export const pricingTiers: PricingTier[] = [
       "WhatsApp/Email support for 30 days",
     ],
     note: "Pricing shared after a brief consultation & qualification process.",
-    ctaHref: selarStoreUrl,
+    ctaHref: "/contact",
     ctaLabel: "Book a Consultation",
   },
 ];

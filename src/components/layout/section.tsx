@@ -23,7 +23,7 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className={cn("py-16 md:py-24", backgrounds[background], className)}>
+    <section id={id} className={cn("py-10 md:py-16 lg:py-18", backgrounds[background], className)}>
       <Container className={containerClassName}>{children}</Container>
     </section>
   );
