@@ -79,6 +79,9 @@ export function Footer() {
             © {year} {siteConfig.name}. All rights reserved.
           </p>
           <p>{siteConfig.practiceName}</p>
+          <Link href="/https://www.precioustola.com" className="hover:text-gold  underline underline-offset-4">
+            Designed and Developed by PDN
+          </Link>
         </Container>
       </div>
     </footer>
