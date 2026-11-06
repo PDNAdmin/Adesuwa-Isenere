@@ -89,8 +89,8 @@ export function Footer({ settings }: { settings: SiteSettings }) {
           <p>
             © {year} {settings.counsellorName}. All rights reserved.
           </p>
-          <p>{siteConfig.practiceName}</p>
-          <Link href="/https://www.precioustola.com" className="hover:text-gold  underline underline-offset-4">
+          <p>{settings.practiceName}</p>
+          <Link href="https://www.precioustola.com" className="hover:text-gold underline underline-offset-4">
             Designed and Developed by PDN
           </Link>
         </Container>
